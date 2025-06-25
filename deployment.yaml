@@ -16,7 +16,7 @@ spec:
       - name: petclinic
         image: umang6121/pet-clinic123:latest
         ports:
-        - containerPort: 8082
+        - containerPort: 8084
         imagePullPolicy: Always
 ---
 apiVersion: v1
@@ -31,5 +31,5 @@ spec:
   - name: http
     protocol: TCP
     port: 80
-    targetPort: 8082
+    targetPort: 8084
     nodePort: 30080 
