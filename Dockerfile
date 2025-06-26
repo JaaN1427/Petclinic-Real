@@ -1,8 +1,10 @@
-# Use an official Apache Tomcat image as a base
 FROM tomcat:9.0
 
-# Copy the packaged WAR file into the webapps directory of Tomcat
-COPY target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+# Clean default Tomcat webapps (optional, but we're keeping ROOT here)
+# RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Expose port 8080 (Tomcat's default port)
+# Copy WAR as petclinic.war to deploy at /petclinic
+COPY target/petclinic.war /usr/local/tomcat/webapps/petclinic.war
+
+# Set Tomcat to run on port 8080 (we will map host 8083 to container 8080)
 EXPOSE 8080
